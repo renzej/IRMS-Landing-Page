@@ -6,16 +6,51 @@ import { XCircle } from "lucide-react";
 
 // Components
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Contact from "@/components/Contact";
 
 function App() {
 	// State Trackers
 	const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+	const [isScrolled, setIsScrolled] = useState(false);
+	const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+
+	// Check if the screen has been scrolled and track viewport size
+	useEffect(() => {
+		const handleScroll = () => {
+			const desktop = window.innerWidth >= 1024;
+			setIsDesktop(desktop); // Update desktop state
+
+			// Track scroll only on desktop breakpoint
+			if (desktop) {
+				if (window.scrollY > 50) {
+					setIsScrolled(true);
+				} else {
+					setIsScrolled(false);
+				}
+			} else {
+				// Always false on mobile/tablet
+				setIsScrolled(false);
+			}
+		};
+
+		handleScroll(); // Call immediately
+
+		window.addEventListener("scroll", handleScroll);
+		window.addEventListener("resize", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+			window.removeEventListener("resize", handleScroll);
+		};
+	}, []);
 
 	// Close drawer when resizing to desktop
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth >= 1024 && mobileDrawerOpen) {
 				setMobileDrawerOpen(false);
+				setIsDesktop(true);
 			}
 		};
 
@@ -37,9 +72,16 @@ function App() {
 				<Navbar
 					mobileDrawerOpen={mobileDrawerOpen}
 					setMobileDrawerOpen={setMobileDrawerOpen}
+					isScrolled={isScrolled}
+					isDesktop={isDesktop}
 				/>
-
 				{/* Content */}
+				<Hero />
+
+				{/* Content that needs to be constrained width-wise */}
+				<div className="max-w-6xl mx-auto px-6">
+					<Contact />
+				</div>
 			</motion.div>
 
 			{/* Mobile drawer - fixed position */}

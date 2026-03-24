@@ -6,7 +6,12 @@ import { Menu, X } from "lucide-react";
 import { navItems } from "@/constants";
 import logo from "@/assets/logo.png";
 
-const Navbar = ({ mobileDrawerOpen, setMobileDrawerOpen }) => {
+const Navbar = ({
+	mobileDrawerOpen,
+	setMobileDrawerOpen,
+	isScrolled,
+	isDesktop,
+}) => {
 	// Toggle Navbar
 	const toggleNavbar = () => {
 		setMobileDrawerOpen(!mobileDrawerOpen);
@@ -14,7 +19,11 @@ const Navbar = ({ mobileDrawerOpen, setMobileDrawerOpen }) => {
 
 	return (
 		<>
-			<header className="fixed top-0 left-0 right-0 bg-foreground/90 p-0 z-50">
+			<header
+				className={`${isDesktop ? "fixed" : "absolute py-2"} top-0 left-0 right-0 p-0 z-50 transition-all duration-300 ${
+					isScrolled ? "py-3 bg-foreground/90" : "py-0 bg-transparent"
+				}`}
+			>
 				<nav className="container mx-auto max-w-7xl px-6 flex items-center justify-between ">
 					{/* Logo Section */}
 					<a
@@ -23,7 +32,11 @@ const Navbar = ({ mobileDrawerOpen, setMobileDrawerOpen }) => {
 					>
 						<img
 							src={logo}
-							className="w-15 h-15 md:w-25 md:h-25 duration-300"
+							className={`transition-all duration-300 ${
+								isScrolled
+									? "w-15 h-15 md:w-8 md:h-8"
+									: "w-15 h-15 md:w-25 md:h-25"
+							}`}
 							alt="IRM Logo"
 						/>
 					</a>

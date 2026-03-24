@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { navItems } from "@/constants";
-import { X, XCircle } from "lucide-react";
+import { XCircle } from "lucide-react";
 
 // Components
 import Navbar from "@/components/Navbar";
@@ -54,15 +54,15 @@ function App() {
 							duration: 0.3,
 							ease: "easeInOut",
 						}}
-						className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-amber-300 shadow-2xl z-50"
+						className="fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-foreground-muted/98 shadow-2xl z-50"
 					>
 						{/* Close Button */}
 						<button
 							onClick={() => setMobileDrawerOpen(false)}
-							className="flex items-center gap-2 px-6 py-5 w-full hover:bg-amber-400 transition-colors"
+							className="flex items-center gap-2 px-6 py-5 w-full bg-black transition-colors text-surface hover:text-highlight duration-300"
 						>
 							<XCircle size={15} />
-							<span className="uppercase font-bold text-sm">
+							<span className="uppercase font-bold text-[13px]">
 								Close Menu
 							</span>
 						</button>
@@ -73,7 +73,7 @@ function App() {
 								<a
 									key={index}
 									href={link.href}
-									className="text-[1.02rem] px-6 py-4"
+									className="text-[15px] px-6 py-4 text-surface hover:text-highlight duration-300"
 									onClick={() => setMobileDrawerOpen(false)}
 								>
 									{link.label}

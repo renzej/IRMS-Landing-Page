@@ -14,7 +14,7 @@ const Navbar = ({ mobileDrawerOpen, setMobileDrawerOpen }) => {
 
 	return (
 		<>
-			<header className="fixed top-0 left-0 right-0 bg-amber-300 p-0 z-50">
+			<header className="fixed top-0 left-0 right-0 bg-foreground/90 p-0 z-50">
 				<nav className="container mx-auto max-w-7xl px-6 flex items-center justify-between ">
 					{/* Logo Section */}
 					<a
@@ -34,7 +34,7 @@ const Navbar = ({ mobileDrawerOpen, setMobileDrawerOpen }) => {
 							{navItems.map((link, index) => (
 								<a
 									href={link.href}
-									className="uppercase font-semibold text-[0.83rem]"
+									className="uppercase font-semibold text-[12px] text-surface hover:text-highlight duration-300"
 									key={index}
 								>
 									{link.label}
@@ -43,7 +43,7 @@ const Navbar = ({ mobileDrawerOpen, setMobileDrawerOpen }) => {
 						</div>
 					</div>
 					<div className="lg:hidden md-flex flex-col justify-end">
-						<button onClick={toggleNavbar}>
+						<button onClick={toggleNavbar} className="text-surface">
 							{mobileDrawerOpen ? <X /> : <Menu />}
 						</button>
 					</div>

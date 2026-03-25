@@ -21,7 +21,7 @@ const Navbar = ({
 		<>
 			<header
 				className={`${isDesktop ? "fixed" : "absolute py-2"} top-0 left-0 right-0 p-0 z-50 transition-all duration-300 ${
-					isScrolled ? "py-3 bg-foreground/90" : "py-0 bg-transparent"
+					isScrolled ? "py-3 bg-foreground/95" : "py-0 bg-transparent"
 				}`}
 			>
 				<nav className="container mx-auto max-w-7xl px-6 flex items-center justify-between ">

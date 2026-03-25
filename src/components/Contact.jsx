@@ -38,7 +38,7 @@ const Contact = () => {
 			<div className="max-w-6xl mx-auto">
 				{/* Title Section */}
 				<motion.div
-					className="text-center uppercase mb-25"
+					className="text-center uppercase mb-15 lg:mb-25"
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true }}
@@ -57,9 +57,9 @@ const Contact = () => {
 				</motion.div>
 
 				{/* Map and Form */}
-				<div className="flex flex-col md:flex-row justify-between items-center gap-2">
+				<div className="flex flex-col px-10 md:px-30 lg:px-5 lg:flex-row justify-between items-center gap-10 md:gap-15 lg:gap-10">
 					<motion.div
-						className="w-full h-[550px] shadow-lg overflow-hidden"
+						className="w-full aspect-square shadow-lg overflow-hidden"
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true }}
@@ -77,7 +77,7 @@ const Contact = () => {
 					</motion.div>
 
 					<motion.div
-						className="w-full px-10"
+						className="w-full md:px-2 lg:pr-10"
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true }}
@@ -85,7 +85,7 @@ const Contact = () => {
 					>
 						<form>
 							{/* Name and Email */}
-							<div className="flex gap-2 mb-9">
+							<div className="flex flex-col min-[600px]:flex-row gap-4 min-[600px]:gap-2 mb-9">
 								<input
 									type="text"
 									placeholder="Name"

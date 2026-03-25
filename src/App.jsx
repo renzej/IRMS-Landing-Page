@@ -77,11 +77,7 @@ function App() {
 				/>
 				{/* Content */}
 				<Hero />
-
-				{/* Content that needs to be constrained width-wise */}
-				<div className="max-w-6xl mx-auto px-6">
-					<Contact />
-				</div>
+				<Contact />
 			</motion.div>
 
 			{/* Mobile drawer - fixed position */}
